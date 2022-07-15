@@ -40,8 +40,8 @@ public class TestMakingTheOrder {
     @Parameterized.Parameters
     public static Object[][] getNumber () {
         return new Object[][] {
-                {"Ирина", "Плохая", "ул. Вашего д.25 кв.5", "Сокольники", "88005553535","16.07.2022", "сутки", "Позвонить перед приездом"},
-                {"Георгий", "Пензенский", "ул. Паково д.2", "Спортивная", "880055535350","12.07.2022", "двое суток", "Принести заряженным"}
+                {"Макашарип", "Муртазалиев", "ул. Вашего д.25 кв.5", "Сокольники", "88005553535","16.07.2022", "сутки", "Позвонить перед приездом"},
+
         };
     }
     @Before
@@ -52,14 +52,13 @@ public class TestMakingTheOrder {
         driver.get(URL_YANDEX);
         MainPageScooterService mainPageScooterService = new MainPageScooterService(driver);
         mainPageScooterService.closeCookieButton();
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 
     }
     @Test
     public void testOrderWithLowerButton() {
 
         MainPageScooterService mainPageScooterService = new MainPageScooterService(driver);
-        mainPageScooterService.scrollToLowerButton();
         mainPageScooterService.clickToOrderButtonLow();
 
         OrderInformationPage orderInformationPage = new OrderInformationPage(driver);

@@ -36,7 +36,9 @@ public class TestAnswers {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get(URL_YANDEX);
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+        MainPageScooterService mainPageScooterService = new MainPageScooterService(driver);
+        mainPageScooterService.closeCookieButton();
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 
     }
 
@@ -51,7 +53,6 @@ public class TestAnswers {
 
     @After
     public void teardown(){
-        driver.close();
         driver.quit();
     }
 }

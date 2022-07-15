@@ -55,16 +55,6 @@ public class MainPageScooterService {
     private By lowerOrderButton = By.xpath("(//button [text()='Заказать'])[2]");
 
 
-    public void clickUpperOrderButton() {
-        driver.findElement(upperOrderButton).click();
-    }
-
-    public void clickLowerOrderButton() {
-
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",
-                driver.findElement(lowerOrderButton));
-        driver.findElement(lowerOrderButton).click();
-    }
 
     public void closeCookieButton() {
         driver.findElement(cookie).click();
@@ -100,6 +90,8 @@ public class MainPageScooterService {
 
     // Клик на нижнюю кнопку "Заказать" (большую)
     public void clickToOrderButtonLow() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();",
+                driver.findElement(lowerOrderButton));
         driver.findElement(lowerOrderButton).click();
     }
 }
